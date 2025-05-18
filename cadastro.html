@@ -1,19 +1,3 @@
-HEAD
-{% extends 'base.html' %}
-{% block content %}
-<h2>Cadastro de Terreiro</h2>
-<form method="POST">
-    <input name="nome" placeholder="Nome do Terreiro" required><br>
-    <input name="segmento" placeholder="Segmento (Umbanda, Candomblé...)" required><br>
-    <input name="estado" placeholder="Estado" required><br>
-    <input name="cidade" placeholder="Cidade" required><br>
-    <input name="bairro" placeholder="Bairro" required><br>
-    <input name="rua" placeholder="Rua" required><br>
-    <input name="numero" placeholder="Número" required><br>
-    <input name="cep" placeholder="CEP" required><br>
-    <button type="submit">Cadastrar</button>
-</form>
-{% endblock %}
 {% extends "base.html" %}
 {% block title %}Cadastro de Terreiro{% endblock %}
 {% block content %}
@@ -42,4 +26,3 @@ HEAD
   <div class="col-12"><button class="btn btn-success w-100">Cadastrar</button></div>
 </form>
 {% endblock %}
-3e6a64d20bdbca07d1b83dc068a4407e99aa3053

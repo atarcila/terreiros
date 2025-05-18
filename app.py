@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 import os
@@ -60,4 +61,15 @@ if __name__ == '__main__':
         os.makedirs('instance')
     with app.app_context():
         db.create_all()
+=======
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "Bem-vindo ao site de terreiros religiosos!"
+
+if __name__ == '__main__':
+>>>>>>> 3e6a64d20bdbca07d1b83dc068a4407e99aa3053
     app.run(host='0.0.0.0', port=10000)
