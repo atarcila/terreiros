@@ -1,10 +1,12 @@
-<<<<<<< HEAD
+import os
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
-import os
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///instance/terreiros.db'
+
+# Caminho absoluto para o banco SQLite dentro da pasta instance
+db_path = os.path.join(app.root_path, 'instance', 'terreiros.db')
+app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{db_path}'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
@@ -57,19 +59,9 @@ def orixas():
     return render_template('orixas.html')
 
 if __name__ == '__main__':
-    if not os.path.exists('instance'):
-        os.makedirs('instance')
+    # Cria pasta instance se não existir
+    if not os.path.exists(os.path.join(app.root_path, 'instance')):
+        os.makedirs(os.path.join(app.root_path, 'instance'))
     with app.app_context():
         db.create_all()
-=======
-from flask import Flask
-
-app = Flask(__name__)
-
-@app.route('/')
-def home():
-    return "Bem-vindo ao site de terreiros religiosos!"
-
-if __name__ == '__main__':
->>>>>>> 3e6a64d20bdbca07d1b83dc068a4407e99aa3053
-    app.run(host='0.0.0.0', port=10000)
+    app.run(debug=True)
