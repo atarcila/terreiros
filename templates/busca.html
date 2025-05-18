@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Buscar Terreiros</h2>
+<form method="get">
+    <input name="cep" placeholder="CEP">
+    <input name="estado" placeholder="Estado">
+    <input name="cidade" placeholder="Cidade">
+    <input name="bairro" placeholder="Bairro">
+    <input name="rua" placeholder="Rua">
+    <button type="submit">Buscar</button>
+</form>
+<ul>
+{% for t in resultados %}
+    <li>{{ t.nome }} - {{ t.segmento }} ({{ t.cidade }}/{{ t.estado }})</li>
+{% endfor %}
+</ul>
+{% endblock %}

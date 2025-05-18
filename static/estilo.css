@@ -1,0 +1,5 @@
+body { font-family: sans-serif; background-color: #f4f4f4; margin: 0; padding: 0; }
+header { background: #333; color: #fff; padding: 1em; }
+nav a { color: #fff; margin: 0 10px; text-decoration: none; }
+main { padding: 20px; }
+input, button { margin: 5px 0; padding: 8px; width: 100%; max-width: 400px; }
