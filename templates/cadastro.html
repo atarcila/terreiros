@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Cadastro de Terreiro{% endblock %}
+{% block content %}
+<h2 class="mb-4 text-success">Cadastrar Terreiro</h2>
+<form method="post" enctype="multipart/form-data" class="row g-3">
+  <div class="col-md-6"><input name="nome" class="form-control" placeholder="Nome do Terreiro" required></div>
+  <div class="col-md-6">
+    <select name="segmento" class="form-select" required>
+      <option value="">Selecione o Segmento</option>
+      <option>Umbanda</option>
+      <option>Jurema</option>
+      <option>Kimbanda</option>
+      <option>Quimbanda</option>
+      <option>Candomblé</option>
+    </select>
+  </div>
+  <div class="col-md-2"><input name="estado" class="form-control" placeholder="Estado" required></div>
+  <div class="col-md-2"><input name="cidade" class="form-control" placeholder="Cidade" required></div>
+  <div class="col-md-2"><input name="bairro" class="form-control" placeholder="Bairro" required></div>
+  <div class="col-md-3"><input name="rua" class="form-control" placeholder="Rua" required></div>
+  <div class="col-md-1"><input name="numero" class="form-control" placeholder="Nº" required></div>
+  <div class="col-md-2"><input name="cep" class="form-control" placeholder="CEP" required></div>
+  <div class="col-md-4"><input type="file" name="foto1" class="form-control"></div>
+  <div class="col-md-4"><input type="file" name="foto2" class="form-control"></div>
+  <div class="col-md-4"><input type="file" name="foto3" class="form-control"></div>
+  <div class="col-12"><button class="btn btn-success w-100">Cadastrar</button></div>
+</form>
+{% endblock %}

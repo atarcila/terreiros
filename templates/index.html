@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Pesquisar Terreiros{% endblock %}
+{% block content %}
+<h2 class="mb-4">Pesquisar Terreiros</h2>
+<form action="/pesquisar" method="get" class="row g-2 mb-4">
+  <div class="col-md-2"><input name="cep" class="form-control" placeholder="CEP"></div>
+  <div class="col-md-2"><input name="estado" class="form-control" placeholder="Estado"></div>
+  <div class="col-md-2"><input name="cidade" class="form-control" placeholder="Cidade"></div>
+  <div class="col-md-2"><input name="bairro" class="form-control" placeholder="Bairro"></div>
+  <div class="col-md-2"><input name="rua" class="form-control" placeholder="Rua"></div>
+  <div class="col-md-2"><button class="btn btn-primary w-100">Buscar</button></div>
+</form>
+{% for t in terreiros %}
+<div class="card mb-4">
+  <div class="card-body">
+    <h5>{{ t.nome }}</h5>
+    <p><strong>Segmento:</strong> {{ t.segmento }}</p>
+    <p><strong>Endereço:</strong> {{ t.endereco_completo }}</p>
+    <div class="d-flex flex-wrap mb-2">
+      {% for f in [t.foto1, t.foto2, t.foto3] if f %}
+      <img src="{{ url_for('static', filename=f.split('static/')[1]) }}" width="100" class="me-2 mb-2">
+      {% endfor %}
+    </div>
+    <iframe width="100%" height="250" style="border:0" loading="lazy" allowfullscreen
+      src="https://www.google.com/maps?q={{ t.endereco_completo | urlencode }}&output=embed">
+    </iframe>
+  </div>
+</div>
+{% endfor %}
+{% endblock %}
